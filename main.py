@@ -1,11 +1,6 @@
 import random
 from collections import deque
 
-class Node:
-    def __init__(self, value, next_node=None):
-        self.value = value
-        self.next_node = next_node
-        self.previous = None
 
 def erdos_renyi_model(n, p):
 
@@ -25,31 +20,29 @@ def bfs_search(a, b, G):
 
     queue = deque([a])
     visited = set([a])
-    predecessors = {a: None}
+    prev = {a: None}
 
     while queue:
         node = queue.popleft()
-        
-        
+
         if node == b:
             path = []
-            while node is not None:
+            while node:
                 path.append(node)
-                node = predecessors[node]
+                node = prev[node]
             return path[::-1]
 
         for neighbor in G[node]:
             if neighbor not in visited:
                 visited.add(neighbor)
                 queue.append(neighbor)
-                predecessors[neighbor] = node
+                prev[neighbor] = node
 
-    
     return None
 
 
 size = 10
-G = erdos_renyi_model(size, .3)
+G = erdos_renyi_model(size, 0.3)
 
 print("Граф")
 for _l in G:
@@ -64,7 +57,5 @@ print(a, b)
 
 print("Путь")
 if a != b:
-    print("Вершины допустимы")
     path = bfs_search(a, b, G)
     print(path)
-   
