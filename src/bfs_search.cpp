@@ -2,7 +2,6 @@
 #include <deque>
 #include <unordered_map>
 #include <set>
-#include <cstddef>
 
 std::list<int> Graph::bfs_search(const int a, const int b){
 	if (a == b){
@@ -37,5 +36,5 @@ std::list<int> Graph::bfs_search(const int a, const int b){
 	 		} 
 	 	}
 	 }
-	return {-1}; 
+	return {-2}; 
 	}

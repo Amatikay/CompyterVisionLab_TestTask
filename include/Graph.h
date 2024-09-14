@@ -3,6 +3,7 @@
 
 #include <list>
 #include <vector>
+#include <iostream>
 
 class Graph {
 public:	
@@ -13,7 +14,7 @@ public:
 	*/
 	Graph(const int size, const float p);
 
-	void print();
+	void print(std::ostream& ostr);
 	std::list<int> bfs_search(const int a,const int b);
 	~Graph(){};
 private:

@@ -17,12 +17,12 @@ Graph::Graph(const int size, const float p){
 	} 
 }
 
-void Graph::print(){
+void Graph::print(std::ostream& ostr){
 	for(auto &i: adj_list){
 		for(auto &j: i){
-			std::cout<< j << " ";
+			ostr<< j << " ";
 		}
-		std::cout << std::endl;
+		ostr << std::endl;
 	}
 }
 
